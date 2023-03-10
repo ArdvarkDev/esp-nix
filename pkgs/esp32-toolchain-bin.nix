@@ -12,7 +12,6 @@ stdenv.mkDerivation rec {
 	rpath = lib.makeLibraryPath [
 		gcc-unwrapped
 		glibc
-		python2
 	];
 
 	installPhase = ''
