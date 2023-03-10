@@ -2,7 +2,7 @@
 	description = "ESP32 development tools";
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixpkgs-22.11";
+		nixpkgs.url = "nixpkgs/nixpkgs-unstable";
 		flake-utils.url = "github:numtide/flake-utils";
 	};
 
