@@ -1,2 +1,2 @@
-import <nixpks> { overlays = [ (import ./overlay.nix) ]; }
+import <nixpkgs> { overlays = [ (import ./overlay.nix) ]; }
 
