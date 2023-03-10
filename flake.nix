@@ -1,0 +1,26 @@
+{
+	description = "ESP32 development tools";
+
+	inputs = {
+		nixpkgs.url = "nixpkgs/nixpkgs-22.11";
+		flake-utils.url = "github:numtide/flake-utils";
+	};
+
+	outputs = { self, nixpkgs, flake-utils }: {
+		overlay = import ./overlay.nix;
+	} // flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
+	let
+		pkgs = import nixpkgs { inherit system; overlays = [ self.overlay ]; };
+	in
+	{
+		packages = {
+			inherit (pkgs)
+				gcc-xtensa-esp32-elf-bin
+				esp-idf;
+		};
+
+		devShells = {
+			esp32-idf = import ./shells/esp32-idf.nix { inherit pkgs; };
+		};
+	});
+}
