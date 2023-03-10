@@ -37,6 +37,12 @@ stdenv.mkDerivation rec {
 		echo '","features":["core"],"targets":["esp32"]}}}' >> $out/espressif/idf-env.json
 
 		unzip ${pythonEnv} -d $out/espressif/python_env/idf5.0_py3.10_env/
+		rm $out/espressif/python_env/idf5.0_py3.10_env/bin/python
+		rm $out/espressif/python_env/idf5.0_py3.10_env/bin/python3
+		rm $out/espressif/python_env/idf5.0_py3.10_env/bin/python3.10
+
+		ln -s ${python3/bin/python} $out/espressif/python_env/idf5.0_py3.10_env/bin/python
+		ln -s ${python3/bin/python3} $out/espressif/python_env/idf5.0_py3.10_env/bin/python3
 
 		cp ${constraints} $out/espressif/espidf.constraints.v5.0.txt
 		ln -s $out/espressif/python_env/idf5.0_py3.10_env/lib $out/
