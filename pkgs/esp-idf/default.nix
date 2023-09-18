@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
 	constraints = fetchurl {
 		url = "https://dl.espressif.com/dl/esp-idf/espidf.constraints.v5.0.txt";
-		sha256 = "OsLODnQuUY7XZ4/iypHngtNYdjdcZC/q3Blbpb9/wfA=";
+		sha256 = "wK095VjtdxwTEpoeDYEsO5+kby4exLi5w6OoIIFYMHo=";
 	};
 
 	pythonEnv = ./pythonenv.zip;
